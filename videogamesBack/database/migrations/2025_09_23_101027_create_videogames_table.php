@@ -13,11 +13,10 @@ return new class extends Migration {
         Schema::create('videogames', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('platform');
             $table->date('release_date');
             $table->text('description');
             $table->decimal('price', 10, 2);
-            $table->string('cover_image');
+            $table->string('cover_image')->nullable();
             $table->timestamps();
         });
     }

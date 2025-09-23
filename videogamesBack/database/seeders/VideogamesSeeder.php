@@ -18,7 +18,6 @@ class VideogamesSeeder extends Seeder
             $newVideogame = new Videogame();
 
             $newVideogame->title        = $faker->sentence(3);
-            $newVideogame->platform     = $faker->word();
             $newVideogame->release_date = $faker->date();
             $newVideogame->description  = $faker->text();
             $newVideogame->price        = $faker->randomFloat(2, 0, 100);
