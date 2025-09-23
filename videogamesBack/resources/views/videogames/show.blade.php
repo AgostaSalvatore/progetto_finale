@@ -26,7 +26,7 @@
                     
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Genere:</strong> {{ $videogame->genre }}</p>
+                            <p><strong>Prezzo:</strong> {{ $videogame->price }}€</p>
                         </div>
                         <div class="col-md-6">
                             <p><strong>Data di aggiunta:</strong> {{ $videogame->created_at->format('d/m/Y') }}</p>
