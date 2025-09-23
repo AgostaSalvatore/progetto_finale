@@ -19,6 +19,11 @@
                     <p class="card-text">{{ $videogame->description }}</p>
                     <p class="card-text"><small class="text-muted">{{ $videogame->genre }}</small></p>
                 </div>
+                <div class="card-footer">
+                    <a href="{{ route('videogames.show', $videogame) }}" class="btn btn-primary">
+                        <i class="bi bi-eye"></i> Visualizza
+                    </a>
+                </div>
             </div>
         </div>
         @endforeach
