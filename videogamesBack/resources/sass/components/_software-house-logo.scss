@@ -1,0 +1,28 @@
+// Software House Logo Styles
+.software-house-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-left: 0.5rem;
+    
+    &.small {
+        width: 20px;
+        height: 20px;
+    }
+    
+    &.medium {
+        width: 40px;
+        height: 40px;
+    }
+    
+    &.large {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.software-house-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
