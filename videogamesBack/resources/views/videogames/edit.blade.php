@@ -70,7 +70,7 @@
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button type="submit" class="btn btn-primary">
-                                <i class="bi bi-plus-circle"></i> Aggiungi Videogioco
+                                <i class="bi bi-plus-circle"></i> Modifica Videogioco
                             </button>
                         </div>
                     </form>

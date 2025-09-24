@@ -66,6 +66,18 @@
                             @enderror
                         </div>
 
+                        <div class="mb-3">
+                            <label for="software_house_id" class="form-label">Software House</label>
+                            <select class="form-select" id="software_house_id" name="software_house_id">
+                                <option value="">Seleziona una Software House</option>
+                                @foreach ($softwareHouses as $softwareHouse)
+                                    <option value="{{ $softwareHouse->id }}" {{ old('software_house_id') == $softwareHouse->id ? 'selected' : '' }}>
+                                        {{ $softwareHouse->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button type="submit" class="btn btn-primary">

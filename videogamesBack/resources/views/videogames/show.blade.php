@@ -17,7 +17,7 @@
     
     <div class="row">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card border-dark">
                 <div class="card-body">
                     <h5 class="card-title">Descrizione</h5>
                     <p class="card-text">{{ $videogame->description }}</p>
@@ -48,6 +48,19 @@
                             <i class="bi bi-trash"></i> Elimina
                         </button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card border-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Software House</h5>
+                    <p class="card-text">Nome: {{ $videogame->softwareHouse->name }}</p>
+                    <p class="card-text">Descrizione: {{ $videogame->softwareHouse->description }}</p>
+                    <p class="card-text"> Data di creazione: {{ $videogame->softwareHouse->created_at->format('d/m/Y') }}</p>
                 </div>
             </div>
         </div>

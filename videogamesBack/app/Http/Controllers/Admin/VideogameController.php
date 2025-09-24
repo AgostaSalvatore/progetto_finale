@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Videogame;
+use App\Models\SoftwareHouse;
 use Illuminate\Http\Request;
 
 class VideogameController extends Controller
@@ -22,7 +23,8 @@ class VideogameController extends Controller
      */
     public function create()
     {
-        return view('videogames.create');
+        $softwareHouses = SoftwareHouse::all();
+        return view('videogames.create', compact('softwareHouses'));
     }
 
     /**
@@ -32,11 +34,12 @@ class VideogameController extends Controller
     {
         $data = $request->all();
 
-        $videogame               = new Videogame();
-        $videogame->title        = $data['title'];
-        $videogame->description  = $data['description'];
-        $videogame->release_date = $data['release_date'];
-        $videogame->price        = $data['price'];
+        $videogame                    = new Videogame();
+        $videogame->title             = $data['title'];
+        $videogame->description       = $data['description'];
+        $videogame->release_date      = $data['release_date'];
+        $videogame->price             = $data['price'];
+        $videogame->software_house_id = $data['software_house_id'];
         $videogame->save();
 
         return redirect()->route('videogames.index');
@@ -55,7 +58,8 @@ class VideogameController extends Controller
      */
     public function edit(Videogame $videogame)
     {
-        return view('videogames.edit', compact('videogame'));
+        $softwareHouses = SoftwareHouse::all();
+        return view('videogames.edit', compact('videogame', 'softwareHouses'));
     }
 
     /**
@@ -65,10 +69,11 @@ class VideogameController extends Controller
     {
         $data = $request->all();
 
-        $videogame->title        = $data['title'];
-        $videogame->description  = $data['description'];
-        $videogame->release_date = $data['release_date'];
-        $videogame->price        = $data['price'];
+        $videogame->title             = $data['title'];
+        $videogame->description       = $data['description'];
+        $videogame->release_date      = $data['release_date'];
+        $videogame->price             = $data['price'];
+        $videogame->software_house_id = $data['software_house_id'];
         $videogame->save();
 
         return redirect()->route('videogames.show', $videogame);
