@@ -44,17 +44,35 @@
                         <a href="{{ route('videogames.edit', $videogame) }}" class="btn btn-primary">
                             <i class="bi bi-pencil"></i> Modifica
                         </a>
-                        <form action="{{ route('videogames.destroy', $videogame) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo videogioco?')">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger w-100">
-                                <i class="bi bi-trash"></i> Elimina
-                            </button>
-                        </form>
+                        <button type="button" class="btn btn-danger" data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                            <i class="bi bi-trash"></i> Elimina
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina il videogioco</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Vuoi cancellare <strong>"{{ $videogame->title }}"</strong> dal database?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+              <form action="{{route('videogames.destroy' , $videogame)}}" method="POST">
+                 @csrf
+                 @method('DELETE')
+                 <input type="submit" class="btn mx-2 btn-outline-danger" value="Elimina Definitivamente"></a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
 @endsection
