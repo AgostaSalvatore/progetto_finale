@@ -47,34 +47,33 @@ class SoftwareHouseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SoftwareHouse $softwareHouse)
+    public function show(SoftwareHouse $softwarehouse)
     {
-        return view('softwarehouses.show', compact('softwareHouse'));
+        return view('softwarehouses.show', compact('softwarehouse'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SoftwareHouse $softwareHouse)
+    public function edit(SoftwareHouse $softwarehouse)
     {
-        $softwareHouses = SoftwareHouse::all();
-        return view('softwarehouses.edit', compact('softwareHouse', 'softwareHouses'));
+        return view('softwarehouses.edit', compact('softwarehouse'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SoftwareHouse $softwareHouse)
+    public function update(Request $request, SoftwareHouse $softwarehouse)
     {
         $data = $request->all();
 
-        $softwareHouse->name         = $data['name'];
-        $softwareHouse->founded_year = $data['founded_year'];
-        $softwareHouse->country      = $data['country'];
-        $softwareHouse->website      = $data['website'];
-        $softwareHouse->description  = $data['description'];
-        $softwareHouse->logo         = $data['logo'];
-        $softwareHouse->save();
+        $softwarehouse->name         = $data['name'];
+        $softwarehouse->founded_year = $data['founded_year'];
+        $softwarehouse->country      = $data['country'];
+        $softwarehouse->website      = $data['website'];
+        $softwarehouse->description  = $data['description'];
+        $softwarehouse->logo         = $data['logo'];
+        $softwarehouse->save();
 
         return redirect()->route('softwarehouses.index');
     }
@@ -82,9 +81,9 @@ class SoftwareHouseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SoftwareHouse $softwareHouse)
+    public function destroy(SoftwareHouse $softwarehouse)
     {
-        $softwareHouse->delete();
+        $softwarehouse->delete();
         return redirect()->route('softwarehouses.index');
     }
 }
