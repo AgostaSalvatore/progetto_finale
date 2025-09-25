@@ -30,6 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">I Miei Giochi</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/softwarehouses') }}">Software Houses</a>
+                    </li>
                 </ul>
             </div>
         </div>

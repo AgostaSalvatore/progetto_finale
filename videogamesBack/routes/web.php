@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SoftwareHouseController;
 use App\Http\Controllers\Admin\VideogameController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,5 +29,6 @@ Route::middleware(['auth', 'verified'])
     });
 
 Route::resource('videogames', VideogameController::class);
+Route::resource('softwarehouses', SoftwareHouseController::class);
 
 require __DIR__ . '/auth.php';
