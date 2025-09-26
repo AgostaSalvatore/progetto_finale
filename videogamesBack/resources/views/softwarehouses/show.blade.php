@@ -15,30 +15,70 @@
         </div>
     </div>
 
-    <div class="row">
+    <!-- Prima riga: Logo e Descrizione -->
+    <div class="row mb-4">
         <div class="col-md-4">
-            <div class="card">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Logo</h5>
+                    <img src="{{ asset('images/software_houses/' . $softwarehouse->logo) }}" alt="Logo" class="img-fluid" style="max-height: 150px;">
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">Descrizione</h5>
                     <p class="card-text">{{ $softwarehouse->description }}</p>
                 </div>
             </div>
         </div>
+    </div>
 
+    <!-- Seconda riga: Informazioni -->
+    <div class="row mb-4">
         <div class="col-md-4">
-            <div class="card">
+            <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Logo</h5>
-                    <img src="{{ asset('images/software_houses/' . $softwarehouse->logo) }}" alt="Logo" class="img-fluid">
+                    <h5 class="card-title">Anno Fondazione</h5>
+                    <p class="card-text">{{ $softwarehouse->founded_year }}</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Paese</h5>
+                    <p class="card-text">{{ $softwarehouse->country }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Sito Web</h5>
+                    <p class="card-text">
+                        @if($softwarehouse->website)
+                            <a href="{{ $softwarehouse->website }}" target="_blank">{{ $softwarehouse->website }}</a>
+                        @else
+                            Non disponibile
+                        @endif
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terza riga: Azioni -->
+    <div class="row">
+        <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Azioni</h5>
-                    <div class="d-grid gap-2">
+                    <div class="d-flex gap-2 flex-wrap">
                         <a href="{{ route('softwarehouses.edit', $softwarehouse->id) }}" class="btn btn-primary">
                             <i class="bi bi-pencil"></i> Modifica
                         </a>

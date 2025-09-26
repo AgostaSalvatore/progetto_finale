@@ -20,7 +20,6 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $videogame->title }}</h5>
                     <p class="card-text">{{ Str::words($videogame->description, 10, '...') }}</p>
-                    <p class="card-text"><small class="text-muted">{{ $videogame->genre }}</small></p>
                     <div class="software-house-info">
                         <small class="text-muted">Software House:</small>
                         <img src="{{ asset('images/software_houses/' . $videogame->softwareHouse->logo) }}" 
