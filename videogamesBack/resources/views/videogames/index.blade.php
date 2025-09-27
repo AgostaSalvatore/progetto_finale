@@ -26,6 +26,16 @@
                              alt="{{ $videogame->softwareHouse->name }}" 
                              class="software-house-logo large">
                     </div>
+                    <p class="mt-4">
+                        <strong>Genere:</strong>
+                        @forelse ($videogame->genres as $genre)
+                            <span class="badge me-2" style="background-color: {{ $genre->color }}">
+                                {{ $genre->name }}
+                            </span>
+                        @empty
+                            <span class="text-muted">Nessun genere associato</span>
+                        @endforelse
+                    </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
                     <a href="{{ route('videogames.show', $videogame) }}" class="btn btn-primary">
