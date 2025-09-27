@@ -61,6 +61,16 @@
                     <p class="card-text">Nome: {{ $videogame->softwareHouse->name }}</p>
                     <p class="card-text">Descrizione: {{ $videogame->softwareHouse->description }}</p>
                     <p class="card-text"> Data di creazione: {{ $videogame->softwareHouse->created_at->format('d/m/Y') }}</p>
+                    <p>
+                        <strong>Genere:</strong>
+                        @forelse ($videogame->genres as $genre)
+                            <span class="badge me-2" style="background-color: {{ $genre->color }}">
+                                {{ $genre->name }}
+                            </span>
+                        @empty
+                            <span class="text-muted">Nessun genere associato</span>
+                        @endforelse
+                    </p>
                 </div>
             </div>
         </div>

@@ -80,6 +80,18 @@
                             </select>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="genre" class="form-label">Genere</label>
+                            <div class="form-check d-flex flex-wrap">
+                                @foreach ($genres as $genre)
+                                <div class="tag me-2">
+                                    <input type="checkbox" name="genre[]" id="tag-{{ $genre->id }}" value="{{ $genre->id }}" {{$videogame->genres->contains($genre->id) ? 'checked' : ''}}>
+                                    <label for="tag-{{ $genre->id }}">{{ $genre->name }}</label>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button type="submit" class="btn btn-primary">

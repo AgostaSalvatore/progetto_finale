@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Videogame;
+use App\Models\Genre;
 use App\Models\SoftwareHouse;
+use App\Models\Videogame;
 use Illuminate\Http\Request;
 
 class VideogameController extends Controller
@@ -24,7 +25,8 @@ class VideogameController extends Controller
     public function create()
     {
         $softwareHouses = SoftwareHouse::all();
-        return view('videogames.create', compact('softwareHouses'));
+        $genres         = Genre::all();
+        return view('videogames.create', compact('softwareHouses', 'genres'));
     }
 
     /**
@@ -34,13 +36,17 @@ class VideogameController extends Controller
     {
         $data = $request->all();
 
-        $videogame                    = new Videogame();
-        $videogame->title             = $data['title'];
-        $videogame->description       = $data['description'];
-        $videogame->release_date      = $data['release_date'];
-        $videogame->price             = $data['price'];
-        $videogame->software_house_id = $data['software_house_id'];
-        $videogame->save();
+        $newVideogame                    = new Videogame();
+        $newVideogame->title             = $data['title'];
+        $newVideogame->description       = $data['description'];
+        $newVideogame->release_date      = $data['release_date'];
+        $newVideogame->price             = $data['price'];
+        $newVideogame->software_house_id = $data['software_house_id'];
+        $newVideogame->save();
+
+        if ($request->has('genre')) {
+            $newVideogame->genres()->attach($data['genre']);
+        }
 
         return redirect()->route('videogames.index');
     }
@@ -50,6 +56,7 @@ class VideogameController extends Controller
      */
     public function show(Videogame $videogame)
     {
+        $videogame->load(['genres', 'softwareHouse']);
         return view('videogames.show', compact('videogame'));
     }
 
@@ -59,7 +66,8 @@ class VideogameController extends Controller
     public function edit(Videogame $videogame)
     {
         $softwareHouses = SoftwareHouse::all();
-        return view('videogames.edit', compact('videogame', 'softwareHouses'));
+        $genres         = Genre::all();
+        return view('videogames.edit', compact('videogame', 'softwareHouses', 'genres'));
     }
 
     /**
@@ -75,6 +83,12 @@ class VideogameController extends Controller
         $videogame->price             = $data['price'];
         $videogame->software_house_id = $data['software_house_id'];
         $videogame->save();
+
+        if ($request->has('genre')) {
+            $videogame->genres()->sync($data['genre']);
+        } else {
+            $videogame->genres()->detach();
+        }
 
         return redirect()->route('videogames.show', $videogame);
     }
