@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\GenreController;
 use App\Http\Controllers\Admin\SoftwareHouseController;
 use App\Http\Controllers\Admin\VideogameController;
 use App\Http\Controllers\ProfileController;
@@ -30,5 +31,6 @@ Route::middleware(['auth', 'verified'])
 
 Route::resource('videogames', VideogameController::class);
 Route::resource('softwarehouses', SoftwareHouseController::class);
+Route::resource('genres', GenreController::class);
 
 require __DIR__ . '/auth.php';

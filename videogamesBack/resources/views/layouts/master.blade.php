@@ -25,13 +25,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">I Miei Giochi</a>
+                        <a class="nav-link" href="{{ url('/videogames') }}">I Miei Giochi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/softwarehouses') }}">Software Houses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/genres') }}">Generi</a>
                     </li>
                 </ul>
             </div>
