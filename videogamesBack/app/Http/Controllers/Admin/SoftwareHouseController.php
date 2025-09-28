@@ -32,14 +32,14 @@ class SoftwareHouseController extends Controller
     {
         $data = $request->all();
 
-        $softwareHouse               = new SoftwareHouse();
-        $softwareHouse->name         = $data['name'];
-        $softwareHouse->founded_year = $data['founded_year'];
-        $softwareHouse->country      = $data['country'];
-        $softwareHouse->website      = $data['website'];
-        $softwareHouse->description  = $data['description'];
-        $softwareHouse->logo         = $data['logo'];
-        $softwareHouse->save();
+        $newSoftwareHouse               = new SoftwareHouse();
+        $newSoftwareHouse->name         = $data['name'];
+        $newSoftwareHouse->founded_year = $data['founded_year'];
+        $newSoftwareHouse->country      = $data['country'];
+        $newSoftwareHouse->website      = $data['website'];
+        $newSoftwareHouse->description  = $data['description'];
+        $newSoftwareHouse->logo         = $data['logo'];
+        $newSoftwareHouse->save();
 
         return redirect()->route('softwarehouses.index');
     }

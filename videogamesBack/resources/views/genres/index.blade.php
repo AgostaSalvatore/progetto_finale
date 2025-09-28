@@ -20,8 +20,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $genre->name }}</h5>
                     <div class="genre-info">
-                        <small class="text-muted">Genere:</small>
-                        <span class="genre-color" style="background-color: {{ $genre->color }}"></span>
+                        <small class="text-muted">Colore tag:</small>
+                        <span class="genre-color" style="background-color: {{ $genre->color }}">{{ $genre->color }}</span>
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-between">

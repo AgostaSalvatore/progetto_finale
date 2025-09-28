@@ -21,7 +21,7 @@
                     <h5 class="card-title">{{ $softwareHouse->name }}</h5>
                     <p class="card-text">{{ Str::words($softwareHouse->description, 10, '...') }}</p>
                     <div class="software-house-info">
-                        <small class="text-muted">Software House:</small>
+                        <small class="text-muted">Logo:</small>
                         <img src="{{ asset('images/software_houses/' . $softwareHouse->logo) }}" 
                              alt="{{ $softwareHouse->name }}" 
                              class="software-house-logo large">
