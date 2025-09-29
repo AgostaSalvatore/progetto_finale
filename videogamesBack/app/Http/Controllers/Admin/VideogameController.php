@@ -7,6 +7,7 @@ use App\Models\Genre;
 use App\Models\SoftwareHouse;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VideogameController extends Controller
 {
@@ -42,6 +43,12 @@ class VideogameController extends Controller
         $newVideogame->release_date      = $data['release_date'];
         $newVideogame->price             = $data['price'];
         $newVideogame->software_house_id = $data['software_house_id'];
+
+        if (array_key_exists('cover_image', $data)) {
+            $img_path                  = Storage::putFile('cover_images', $data['cover_image']);
+            $newVideogame->cover_image = $img_path;
+        }
+
         $newVideogame->save();
 
         if ($request->has('genre')) {
@@ -82,7 +89,14 @@ class VideogameController extends Controller
         $videogame->release_date      = $data['release_date'];
         $videogame->price             = $data['price'];
         $videogame->software_house_id = $data['software_house_id'];
-        $videogame->save();
+
+        if (array_key_exists('cover_image', $data)) {
+            Storage::delete($videogame->cover_image);
+            $img_path               = Storage::putFile('cover_images', $data['cover_image']);
+            $videogame->cover_image = $img_path;
+        }
+
+        $videogame->update();
 
         if ($request->has('genre')) {
             $videogame->genres()->sync($data['genre']);

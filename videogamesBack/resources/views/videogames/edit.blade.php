@@ -19,7 +19,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('videogames.update', $videogame->id) }}" method="POST">
+                    <form action="{{ route('videogames.update', $videogame->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         
@@ -92,6 +92,15 @@
                             </div>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="cover_image" class="form-label">Immagine</label>
+                            <input id="cover_image" type="file" class="form-control border-dark" name="cover_image">
+                            <div class="text-center">
+                                @if($videogame->cover_image)
+                                    <img src="{{asset('storage/' . $videogame->cover_image)}}" alt="{{ $videogame->title }} cover image" class="img-fluid w-25 mt-2">
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button type="submit" class="btn btn-primary">

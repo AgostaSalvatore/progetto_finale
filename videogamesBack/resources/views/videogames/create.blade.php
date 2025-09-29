@@ -19,12 +19,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('videogames.store') }}" method="POST">
+                    <form action="{{ route('videogames.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         
                         <div class="mb-3">
                             <label for="title" class="form-label">Titolo</label>
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" 
+                            <input type="text" class="form-control border-dark @error('title') is-invalid @enderror" 
                                    id="title" name="title" value="{{ old('title') }}" required>
                             @error('title')
                                 <div class="invalid-feedback">
@@ -35,7 +35,7 @@
                         
                         <div class="mb-3">
                             <label for="description" class="form-label">Descrizione</label>
-                            <textarea class="form-control @error('description') is-invalid @enderror" 
+                            <textarea class="form-control border-dark @error('description') is-invalid @enderror" 
                                       id="description" name="description" rows="4">{{ old('description') }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback">
@@ -46,7 +46,7 @@
                         
                         <div class="mb-3">
                             <label for="release_date" class="form-label">Data di Rilascio</label>
-                            <input type="date" class="form-control @error('release_date') is-invalid @enderror" 
+                            <input type="date" class="form-control border-dark @error('release_date') is-invalid @enderror" 
                                    id="release_date" name="release_date" value="{{ old('release_date') }}">
                             @error('release_date')
                                 <div class="invalid-feedback">
@@ -57,7 +57,7 @@
 
                         <div class="mb-3">
                             <label for="price" class="form-label">Prezzo</label>
-                            <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" 
+                            <input type="number" step="0.01" class="form-control border-dark @error('price') is-invalid @enderror" 
                                 id="price" name="price" value="{{ old('price') }}" min="0">
                             @error('price')
                                 <div class="invalid-feedback">
@@ -68,7 +68,7 @@
 
                         <div class="mb-3">
                             <label for="software_house_id" class="form-label">Software House</label>
-                            <select class="form-select" id="software_house_id" name="software_house_id">
+                            <select class="form-select border-dark" id="software_house_id" name="software_house_id">
                                 <option value="">Seleziona una Software House</option>
                                 @foreach ($softwareHouses as $softwareHouse)
                                     <option value="{{ $softwareHouse->id }}" {{ old('software_house_id') == $softwareHouse->id ? 'selected' : '' }}>
@@ -90,6 +90,10 @@
                             </div>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="cover_image" class="form-label">Immagine</label>
+                            <input id="cover_image" type="file" class="form-control border-dark" name="cover_image">
+                        </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button type="submit" class="btn btn-primary">

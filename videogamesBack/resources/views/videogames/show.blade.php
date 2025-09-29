@@ -15,6 +15,14 @@
         </div>
     </div>
     
+    @if($videogame->cover_image)
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <img src="{{asset('storage/' . $videogame->cover_image)}}" alt="{{ $videogame->title }} cover image" class="img-fluid">
+        </div>
+    </div>
+    @endif
+
     <div class="row">
         <div class="col-md-8">
             <div class="card border-dark">
