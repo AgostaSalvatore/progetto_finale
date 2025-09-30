@@ -29,8 +29,8 @@ Route::middleware(['auth', 'verified'])
             ->name('index');
     });
 
-Route::resource('videogames', VideogameController::class);
-Route::resource('softwarehouses', SoftwareHouseController::class);
-Route::resource('genres', GenreController::class);
+Route::resource('videogames', VideogameController::class)->middleware(['auth', 'verified']);
+Route::resource('softwarehouses', SoftwareHouseController::class)->middleware(['auth', 'verified']);
+Route::resource('genres', GenreController::class)->middleware(['auth', 'verified']);
 
 require __DIR__ . '/auth.php';
