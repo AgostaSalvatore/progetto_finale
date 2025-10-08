@@ -11,11 +11,6 @@ class Videogame extends Model
         return $this->belongsTo(SoftwareHouse::class);
     }
 
-    public function genre()
-    {
-        return $this->belongsToMany(Genre::class);
-    }
-
     public function genres()
     {
         return $this->belongsToMany(Genre::class);

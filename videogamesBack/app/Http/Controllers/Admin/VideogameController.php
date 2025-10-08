@@ -90,9 +90,12 @@ class VideogameController extends Controller
         $videogame->price             = $data['price'];
         $videogame->software_house_id = $data['software_house_id'];
 
-        if (array_key_exists('cover_image', $data)) {
-            Storage::delete($videogame->cover_image);
-            $img_path               = Storage::putFile('cover_images', $data['cover_image']);
+        if ($request->hasFile('cover_image')) {
+            // Cancella l'immagine precedente solo se ne viene caricata una nuova
+            if ($videogame->cover_image) {
+                Storage::delete($videogame->cover_image);
+            }
+            $img_path               = Storage::putFile('cover_images', $request->file('cover_image'));
             $videogame->cover_image = $img_path;
         }
 
