@@ -41,12 +41,6 @@ This project is built using:
 - **Blade** templating engine  
 - **JavaScript** for interactive UI elements
 
----
-
-## 🛠️ Installazione / Installation
-
-🇮🇹 Segui questi passaggi per avviare l’app in locale:
-
 1. Clona il repository  
    ```bash
    git clone https://github.com/AgostaSalvatore/videogame_store.git
