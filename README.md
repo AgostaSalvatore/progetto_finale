@@ -40,7 +40,3 @@ This project is built using:
 - **Laravel** as a modern MVC framework :contentReference[oaicite:1]{index=1}  
 - **Blade** templating engine  
 - **JavaScript** for interactive UI elements
-
-1. Clona il repository  
-   ```bash
-   git clone https://github.com/AgostaSalvatore/videogame_store.git
